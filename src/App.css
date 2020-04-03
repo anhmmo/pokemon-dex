@@ -13,6 +13,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-image: linear-gradient(to right bottom, #FFEB3B,#03c2af) ;
+    overflow-x: hidden;
 }
 
 

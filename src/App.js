@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Loading from './components/Loading/Loading';
 import CardList from './components/CardList/CardList';
+
+
 class App extends Component {
  /* constructor() {
     super();
@@ -17,7 +19,7 @@ componentDidMount() {
     setTimeout(() => {
         document.getElementById("load").style.display = 'none';
         document.getElementById("pokemon").style.display = 'flex';
-    }, 2000);
+    }, 1000);
 }
 }
   render() {
@@ -25,6 +27,7 @@ componentDidMount() {
       <div className="App">
         <Loading />
         <CardList />
+        
       </div>
     );
   }
