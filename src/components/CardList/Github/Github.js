@@ -5,7 +5,7 @@ function Github() {
     return (
         <div>
             <div className="github-link">
-                <a href="https://github.com/anhmmo/studentList" title="See Source Codes" target="_blank">See project <i class="fas fa-code" aria-hidden="true"></i> on Github</a>
+                <a href="https://github.com/anhmmo/studentList" title="See Source Codes" target="_blank" rel="noopener noreferrer">See project <i className="fas fa-code" aria-hidden="true"></i> on Github</a>
             </div>
         </div>
     )
