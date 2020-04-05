@@ -1,13 +1,12 @@
 import React from 'react'
 
 const Card = ({imageSrc, alt, types, order, name}) => {
-    let idNumber = "";
+    let idNumber = "#00" + order;
     if(+order > 9) {
         idNumber = "#0" + order;
     } else if(+order > 99) {
         idNumber = "#" + order;
-    } else {
-        idNumber = "#00" + order;
+        console.log(order);
     }
     
     return (
