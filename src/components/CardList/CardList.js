@@ -16,6 +16,9 @@ const CardList = ({pokemon, listImage}) => {
         }
     };
 
+
+    //test second branch
+
     loadPages();
 
     return (
