@@ -37,7 +37,7 @@ componentDidMount() {
             listImage: images}, () => console.log(this.state.listPokemon));
         })
         .catch(err => console.log('ughhhh fix it!', err));
-    }, 1000);
+    }, 100);
    
 }
   render() {
