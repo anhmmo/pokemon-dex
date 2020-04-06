@@ -1,0 +1,189 @@
+.grass {
+    background-color: rgb(222, 253, 224);
+}
+.fire {
+    background-color: rgb(253, 223, 223);
+}
+.water {
+    background-color: rgb(222, 243, 253);
+}
+.poison {
+    background-color: rgb(152, 215, 165);
+}
+.bug {
+    background-color: rgb(248, 213, 163);
+}
+.flying {
+    background-color: rgb(245, 245, 245);
+}
+.electric {
+    background-color: rgb(252, 247, 222);
+}
+.ground {
+    background-color: rgb(244, 231, 218);
+}
+.fairy {
+    background-color: rgb(252, 234, 255);
+}
+.normal {
+    background-color: rgb(165, 151, 140);
+}
+.fighting {
+    background-color: rgb(250, 174, 60);
+}
+.psychic {
+    background-color: tomato;
+}
+.ghost {
+    background-color: tomato;
+}
+.rock {
+    background-color: tomato;
+}
+.ice {
+    background-color: tomato;
+}
+.dragon {
+    background-color: tomato;
+}
+.dark {
+    background-color: tomato;
+}
+.steel {
+    background-color: tomato;
+}
+
+.pk-1 {
+    position: relative;
+    width: 260px;
+    height: 430px;
+    margin: 2%;
+}
+
+.pk-1:hover {
+    cursor: pointer;
+}
+
+.pk-1::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 200px;
+    background-image: linear-gradient(to right bottom, rgba(255, 234, 0, 0.8),rgba(180, 60, 52, 0.8)) ;
+    opacity:1;
+    top: -1px;
+    left: -2px;
+    border-radius: 20px;
+    transition: .6s;
+}
+
+.pk-1::after{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 200px;
+    background-image: linear-gradient(to right bottom, #FFEB3B,#03c2af);
+    opacity:1;
+    bottom: -1px;
+    right: -2px;
+    border-radius: 20px;
+    z-index: 1;
+    transition: .6s;
+}
+
+.pk-1:hover::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 200px;
+    background-image: linear-gradient(to right bottom, rgba(255, 234, 0, 0.8),rgba(180, 60, 52, 0.8)) ;
+    opacity:1;
+    top: 230px;
+    left: -2px;
+    border-radius: 20px;
+    transition: .6s;
+}
+
+.pk-1:hover::after{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 200px;
+    background-image: linear-gradient(to right bottom, #FFEB3B,#03c2af);
+    opacity:1;
+    bottom: 230px;
+    right: -2px;
+    border-radius: 20px;
+    z-index: 1;
+    transition: .6s;
+}
+
+.box{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width:240px;
+    height: 410px;
+    opacity:1;
+    border-radius:10px;
+    box-shadow:0 0 10px rgb(255, 255, 255);
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.img-container {
+    margin: 8% auto 15% auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    text-align: center;
+
+}
+
+.img-container img {
+    margin-top: 20px;
+    max-width: 90%;
+}
+
+.info {
+    text-align: center;
+    font-size: 17px;
+}
+
+.name {
+    margin: 15px 0 7px;
+    letter-spacing: 1px;
+    font-size: 26px;
+}
+
+.number {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+.submit-button {
+    background-image: linear-gradient(to right bottom, rgba(255, 234, 0, 0.8),rgba(180, 60, 52, 0.8)) ;
+    padding: 5px 20px;
+    width: 100px;
+    text-align: center;
+    margin: 25px 0 0 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 4px 6px 5px 0px rgba(0,0,0,0.5);
+    transition: .6s;
+}
+
+.submit-button:hover {
+    padding: 8px 20px;
+    box-shadow: 4px 10px 5px 0px rgba(0,0,0,0.5);
+}
+
+.smaller-font {
+    font-size: 23px;
+}
