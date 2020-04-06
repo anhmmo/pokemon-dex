@@ -1,4 +1,5 @@
 import React from 'react'
+import './Card.css';
 
 const Card = ({imageSrc, alt, types, order, name}) => {
 
@@ -10,7 +11,6 @@ const Card = ({imageSrc, alt, types, order, name}) => {
     }
     
     return (
-        
         <div className="pk-1">
             <div className={"box " + types}>
                 <div className="img-container">
