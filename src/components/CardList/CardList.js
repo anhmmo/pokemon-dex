@@ -7,6 +7,17 @@ import Pagination from './Pagination/Pagination';
 import Card from './Card/Card';
 
 const CardList = ({pokemon, listImage}) => {
+
+    let pokemonList1 = [];
+
+    function loadPages() {
+        for (let index = 0; index < 20; index++) {
+            pokemonList1.push(pokemon[index]);
+        }
+    };
+
+    loadPages();
+
     return (
 
             <div id="pokemon">
@@ -21,7 +32,7 @@ const CardList = ({pokemon, listImage}) => {
 
                <div className="pokemon-container">
 
-                    {pokemon.map((item, index) => {
+                    {pokemonList1.map((item, index) => {
                         
                         return(
                             <Card 
@@ -34,11 +45,12 @@ const CardList = ({pokemon, listImage}) => {
                             />
                         )
 
-                    })}
+                    }) 
+                    }
 
                 </div> 
 
-                <Pagination />
+                <Pagination handleClick={loadPages} />
                 <Footer />
             </div>
         
