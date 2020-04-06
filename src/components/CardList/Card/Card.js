@@ -1,12 +1,12 @@
 import React from 'react'
 
 const Card = ({imageSrc, alt, types, order, name}) => {
+
     let idNumber = "#00" + order;
-    if(+order > 9) {
+    if(order > 9 && order <= 99) {
         idNumber = "#0" + order;
-    } else if(+order > 99) {
+    } else if(order > 99) {
         idNumber = "#" + order;
-        console.log(order);
     }
     
     return (
@@ -18,7 +18,7 @@ const Card = ({imageSrc, alt, types, order, name}) => {
                 </div>
                 <div className="info">
                     <span className="number">{idNumber}</span>
-                    <h3 className="name">{name}</h3>
+                    {name.length > 16 ? <h3 className="name smaller-font">{name}</h3> : <h3 className="name">{name}</h3>}
                     <small className="type">Type: <span>{types}</span></small>
                 </div>
                 <div className="submit-button">info</div>
