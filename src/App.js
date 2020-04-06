@@ -9,7 +9,9 @@ class App extends Component {
     super();
     this.state = {
       listPokemon: [],
-      listImage: []
+      listImage: [],
+      start: 1,
+      end: 21
     }
    
   }
@@ -21,11 +23,11 @@ componentDidMount() {
         const urls = [];
         const images = [];
 
-        for(let i = 1; i < 808; i++) {
+        for(let i = this.state.start; i < this.state.end; i++) {
           images.push(`https://pokeres.bastionbot.org/images/pokemon/${i}.png`);
         }
 
-        for(let i = 1; i < 808; i++) {
+        for(let i = this.state.start; i < this.state.end; i++) {
             urls.push("https://pokeapi.co/api/v2/pokemon/" + i);
         }
     
