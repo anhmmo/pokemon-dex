@@ -81,6 +81,38 @@ h1 {
     background-color: rgb(250, 174, 60);
 }
 
+.psychic {
+    background-color: tomato;
+}
+
+.ghost {
+    background-color: tomato;
+}
+
+.rock {
+    background-color: tomato;
+}
+
+.ice {
+    background-color: tomato;
+}
+
+.dragon {
+    background-color: tomato;
+}
+
+.dark {
+    background-color: tomato;
+}
+
+.steel {
+    background-color: tomato;
+}
+
+.dragon {
+    background-color: tomato;
+}
+
 
 .pk-1 {
     position: relative;
@@ -216,4 +248,8 @@ h1 {
 .submit-button:hover {
     padding: 8px 20px;
     box-shadow: 4px 10px 5px 0px rgba(0,0,0,0.5);
+}
+
+.smaller-font {
+    font-size: 23px;
 }
