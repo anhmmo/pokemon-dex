@@ -6,7 +6,7 @@ import Github from './Github/Github';
 import Pagination from './Pagination/Pagination';
 import Card from './Card/Card';
 
-const CardList = ({pokemon, listImage}) => {
+const CardList = ({pokemon, handleClick, handleInput}) => {
 /*
     let pokemonList1 = [];
 
@@ -27,8 +27,10 @@ const CardList = ({pokemon, listImage}) => {
                 <Github />
                 <div className="input-container">
                     <h1>POKEMON DEX</h1>
-                    <SearchBox />
+                    <SearchBox handleInput = {handleInput} />
                 </div>
+
+                <Pagination loadP = {handleClick} />
 
                <div className="pokemon-container">
 
@@ -38,7 +40,7 @@ const CardList = ({pokemon, listImage}) => {
                             <Card 
                                 key={index}
                                 name = {item.name}
-                                imageSrc= {listImage[index]}
+                                imageSrc= {item.images}
                                 alt= {item.name}
                                 types = {(item.types.length > 1 ? item.types[1].type.name : item.types[0].type.name)}
                                 order = {item.id}
@@ -50,7 +52,7 @@ const CardList = ({pokemon, listImage}) => {
 
                 </div> 
 
-                <Pagination />
+                <Pagination loadP = {handleClick}/>
                 <Footer />
             </div>
         
