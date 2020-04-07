@@ -2,6 +2,7 @@ import React from 'react'
 import './Card.css';
 
 const Card = ({imageSrc, alt, types, order, name}) => {
+    
 
     let idNumber = "#00" + order;
     if(order > 9 && order <= 99) {
