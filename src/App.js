@@ -48,7 +48,7 @@ hasUpdateFromComponent = (startN, endN, otherNumber) => {
   },
   () => { 
     console.log("componentDidUpdate"); 
-    console.log(this.state.listPokemon);
+    //console.log(this.state.listPokemon);
   });
 }
 
@@ -74,7 +74,7 @@ componentDidMount() {
       },
       () => { 
         console.log("componentDidMount"); 
-        console.log(this.state.listPokemon);
+        //console.log(this.state.listPokemon);
       });
   })
   .catch(err => console.log('ughhhh fix it!', err));
