@@ -20,6 +20,8 @@ const CardList = ({pokemon, handleClick, handleInput}) => {
 
     */
 
+    
+
     return (
 
             <div id="pokemon">
