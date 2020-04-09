@@ -33,7 +33,6 @@ class App extends Component {
 
   hasUpdateFromComponent = (startN, endN, otherNumber) => {
     const urls = [];
-
     for (let i = startN; i < endN; i++) {
       urls.push(this.state.defaultList[i - otherNumber]);
     }
