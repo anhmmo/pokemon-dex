@@ -1,37 +1,45 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,500i,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500,500i,700&display=swap");
 
-#pokemon{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-image: linear-gradient(to right,rgb(255, 255, 231), rgb(226, 224, 213));
-    width: 100vw;
-    min-height: 100vh;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+#pokemon {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 255, 231),
+    rgb(226, 224, 213)
+  );
+  width: 100vw;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
-.input-container{ 
-    display: block;
-    width: 100vw; 
-    margin-bottom: 20px;
+.input-container {
+  display: block;
+  width: 100vw;
+  margin-bottom: 20px;
 }
 
-.pokemon-container{ 
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100vw; 
+.pokemon-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
 }
 
 h1 {
-    font-family: 'Rubik', sans-serif;
-    font-size: 60px;
-    text-transform: uppercase;
-    color: rgb(253, 147, 128);
-    margin: 18px 1% 20px 0;
-    line-height: 1.15;
-    text-align: center;
-    letter-spacing: 3px;
-    font-weight: 700;
+  font-family: "Rubik", sans-serif;
+  font-size: 60px;
+  text-transform: uppercase;
+  color: rgb(253, 147, 128);
+  margin: 18px 1% 20px 0;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+h1:hover {
+  cursor: pointer;
 }
