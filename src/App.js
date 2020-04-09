@@ -12,16 +12,22 @@ class App extends Component {
       input: "",
       startNumber: 1,
       endNumber: 21,
+      pages: "pages",
+      actives: "active",
+      activeNumber: 0,
     };
 
     console.log("constructor");
   }
 
   loadPages = (stateNumber) => {
-    this.setState({
-      startNumber: stateNumber * 2 * 10 + 1,
-      endNumber: stateNumber * 2 * 10 + 21,
-    });
+    return () => {
+      this.setState({
+        startNumber: stateNumber * 2 * 10 + 1,
+        endNumber: stateNumber * 2 * 10 + 21,
+        activeNumber: stateNumber,
+      });
+    };
   };
 
   handleInputTypes = (event) => {
@@ -32,6 +38,9 @@ class App extends Component {
   };
 
   hasUpdateFromComponent = (startN, endN, otherNumber) => {
+    if (otherNumber === 0) {
+      this.setState({ activeNumber: 0 });
+    }
     const urls = [];
     for (let i = startN; i < endN; i++) {
       urls.push(this.state.defaultList[i - otherNumber]);
@@ -42,7 +51,9 @@ class App extends Component {
         listPokemon: [].concat(
           urls
             .map((item) => item)
-            .filter((item) => item.name.includes(this.state.input))
+            .filter((item) =>
+              item.name.toUpperCase().includes(this.state.input.toUpperCase())
+            )
         ),
       },
       () => {
@@ -103,6 +114,9 @@ class App extends Component {
             handleInput={this.handleInputTypes}
             handleClick={this.loadPages}
             pokemon={this.state.listPokemon}
+            pages={this.state.pages}
+            actives={this.state.actives}
+            activeN={this.state.activeNumber}
           />
         )}
       </div>
