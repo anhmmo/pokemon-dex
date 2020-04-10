@@ -15,19 +15,124 @@ class App extends Component {
       pages: "pages",
       actives: "active",
       activeNumber: 0,
+      nextPages: [0, 1, 2, 3, 4],
     };
 
     console.log("constructor");
   }
 
   loadPages = (stateNumber) => {
-    return () => {
-      this.setState({
-        startNumber: stateNumber * 2 * 10 + 1,
-        endNumber: stateNumber * 2 * 10 + 21,
+    const startN = stateNumber * 2 * 10 + 1;
+    const endN = stateNumber * 2 * 10 + 21;
+
+    const totalArr = [
+      {
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [0, 1, 2, 3, 4],
         activeNumber: stateNumber,
-      });
-    };
+      },
+      {
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [5, 6, 7, 8, 9],
+        activeNumber: stateNumber,
+      },
+      {
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [10, 11, 12, 13, 14],
+        activeNumber: stateNumber,
+      },
+      {
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [15, 16, 17, 18, 19],
+        activeNumber: stateNumber,
+      },
+      {
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [20, 21, 22, 23, 24],
+        activeNumber: stateNumber,
+      },
+      {
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [25, 26, 27, 28, 29],
+        activeNumber: stateNumber,
+      },
+      {
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [30, 31, 32, 33, 34],
+        activeNumber: stateNumber,
+      },
+      {
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [35, 36, 37, 38, 39],
+        activeNumber: stateNumber,
+      },
+      {
+        startNumber: 801,
+        endNumber: 808,
+        nextPages: [35, 36, 37, 38, 39],
+        activeNumber: 40,
+      },
+      {
+        startNumber: 1,
+        endNumber: 21,
+        nextPages: [0, 1, 2, 3, 4],
+        activeNumber: 0,
+      },
+    ];
+
+    if (stateNumber >= 0 && stateNumber <= 4) {
+      return () => {
+        this.setState(totalArr[0]);
+      };
+    } else if (stateNumber >= 5 && stateNumber <= 9) {
+      return () => {
+        this.setState(totalArr[1]);
+      };
+    } else if (stateNumber >= 10 && stateNumber <= 14) {
+      return () => {
+        this.setState(totalArr[2]);
+      };
+    } else if (stateNumber >= 15 && stateNumber <= 19) {
+      return () => {
+        this.setState(totalArr[3]);
+      };
+    } else if (stateNumber >= 20 && stateNumber <= 24) {
+      return () => {
+        this.setState(totalArr[4]);
+      };
+    } else if (stateNumber >= 25 && stateNumber <= 29) {
+      return () => {
+        this.setState(totalArr[5]);
+      };
+    } else if (stateNumber >= 30 && stateNumber <= 34) {
+      return () => {
+        this.setState(totalArr[6]);
+      };
+    } else if (stateNumber >= 35 && stateNumber < 40) {
+      return () => {
+        this.setState(totalArr[7]);
+      };
+    } else if (stateNumber === 40) {
+      return () => {
+        this.setState(totalArr[8]);
+      };
+    } else if (stateNumber > 40) {
+      return () => {
+        this.setState(totalArr[9]);
+      };
+    } else if (stateNumber < 0) {
+      return () => {
+        this.setState(totalArr[8]);
+      };
+    }
   };
 
   handleInputTypes = (event) => {
@@ -39,7 +144,8 @@ class App extends Component {
 
   hasUpdateFromComponent = (startN, endN, otherNumber) => {
     if (otherNumber === 0) {
-      this.setState({ activeNumber: 0 });
+      this.setState({ activeNumber: 0 
+      });
     }
     const urls = [];
     for (let i = startN; i < endN; i++) {
@@ -117,6 +223,8 @@ class App extends Component {
             pages={this.state.pages}
             actives={this.state.actives}
             activeN={this.state.activeNumber}
+            input={this.state.input}
+            nextPages={this.state.nextPages}
           />
         )}
       </div>
