@@ -15,6 +15,8 @@ class CardList extends React.Component {
       pages,
       actives,
       activeN,
+      input,
+      nextPages,
     } = this.props;
     return (
       <div id="pokemon">
@@ -29,26 +31,41 @@ class CardList extends React.Component {
           page={pages}
           active={actives}
           activeNum={activeN}
+          nextPage={nextPages}
+          pokemon={pokemon}
         />
 
         <div className="pokemon-container">
-          {pokemon.map((item, index) => {
-            return (
-              <Card
-                key={index}
-                name={item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-                imageSrc={item.images}
-                alt={item.name}
-                types={
-                  item.types.length > 1
-                    ? item.types[1].type.name
-                    : item.types[0].type.name
-                }
-                order={item.id}
-              />
-            );
-          })}
+          {pokemon.length > 0 ? (
+            pokemon.map((item, index) => {
+              return (
+                <Card
+                  key={index}
+                  name={item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+                  imageSrc={item.images}
+                  alt={item.name}
+                  types={
+                    item.types.length > 1
+                      ? item.types[1].type.name
+                      : item.types[0].type.name
+                  }
+                  order={item.id}
+                />
+              );
+            })
+          ) : (
+            <div className="not-found">Not found {input}</div>
+          )}
         </div>
+
+        <Pagination
+          loadP={handleClick}
+          page={pages}
+          active={actives}
+          activeNum={activeN}
+          nextPage={nextPages}
+          pokemon={pokemon}
+        />
 
         <Footer />
       </div>

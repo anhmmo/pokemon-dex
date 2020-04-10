@@ -37,9 +37,13 @@ h1 {
   line-height: 1.15;
   text-align: center;
   letter-spacing: 3px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h1:hover {
   cursor: pointer;
+}
+.not-found {
+  color: tomato;
+  font-size: 40px;
 }
