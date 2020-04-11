@@ -144,8 +144,7 @@ class App extends Component {
 
   hasUpdateFromComponent = (startN, endN, otherNumber) => {
     if (otherNumber === 0) {
-      this.setState({ activeNumber: 0 
-      });
+      this.setState({ activeNumber: 0 });
     }
     const urls = [];
     for (let i = startN; i < endN; i++) {
