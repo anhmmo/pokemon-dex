@@ -5,6 +5,7 @@ import Footer from "./Footer/Footer";
 import Github from "./Github/Github";
 import Pagination from "./Pagination/Pagination";
 import Card from "./Card/Card";
+import Filter from "./Filter/Filter";
 
 class CardList extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class CardList extends React.Component {
       activeN,
       input,
       nextPages,
+      onClickButton,
     } = this.props;
     return (
       <div id="pokemon">
@@ -34,6 +36,8 @@ class CardList extends React.Component {
           nextPage={nextPages}
           pokemon={pokemon}
         />
+
+        <Filter onClickButton={onClickButton} />
 
         <div className="pokemon-container">
           {pokemon.length > 0 ? (
