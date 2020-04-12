@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Loading from "./components/Loading/Loading";
 import CardList from "./components/CardList/CardList";
+//import "antd/dist/antd.css";   dang lam gio toi day
+import { message } from "antd";
 
 class App extends Component {
   constructor() {
@@ -20,6 +22,10 @@ class App extends Component {
 
     console.log("constructor");
   }
+
+  onClickButton = ({ key }) => {
+    message.info(`Click on item ${key}`);
+  };
 
   loadPages = (stateNumber) => {
     const startN = stateNumber * 2 * 10 + 1;
@@ -150,7 +156,17 @@ class App extends Component {
     for (let i = startN; i < endN; i++) {
       urls.push(this.state.defaultList[i - otherNumber]);
     }
-
+    /*
+    let arrNew = [].concat(
+      urls
+        .map((item) => item)
+        .filter((item) =>
+          item.name.toUpperCase().includes(this.state.input.toUpperCase())
+        )
+    );
+    arrNew.length = 20;
+    let brrnew = arrNew.slice();
+*/
     this.setState(
       {
         listPokemon: [].concat(
@@ -224,6 +240,7 @@ class App extends Component {
             activeN={this.state.activeNumber}
             input={this.state.input}
             nextPages={this.state.nextPages}
+            onClickButton={this.onClickButton}
           />
         )}
       </div>
