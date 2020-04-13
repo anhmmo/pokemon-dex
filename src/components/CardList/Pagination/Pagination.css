@@ -35,3 +35,22 @@
 .active:hover {
   cursor: pointer;
 }
+
+.filter-box {
+  padding: 14px;
+  border: 0;
+  outline: 0;
+}
+
+select {
+  padding: 12px;
+  width: 200px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.filter-box option *{
+  border: 1px solid #e2eded;
+  border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+
+}
