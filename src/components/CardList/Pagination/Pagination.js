@@ -3,7 +3,7 @@ import "./Pagination.css";
 
 function Pagination(props) {
   const { loadP, page, active, activeNum, nextPage, pokemon } = props;
-  console.log(pokemon.length);
+
   return (
     <div className="pagination">
       {pokemon.length < 800 ? (
