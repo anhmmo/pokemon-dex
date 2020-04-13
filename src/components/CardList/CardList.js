@@ -6,6 +6,7 @@ import Github from "./Github/Github";
 import Pagination from "./Pagination/Pagination";
 import Card from "./Card/Card";
 import Filter from "./Filter/Filter";
+import SortLeft from "./SortLeft/SortLeft";
 
 class CardList extends React.Component {
   render() {
@@ -36,7 +37,6 @@ class CardList extends React.Component {
           nextPage={nextPages}
           pokemon={pokemon}
         />
-
         <Filter onClickButton={onClickButton} />
 
         <div className="pokemon-container">
@@ -50,7 +50,7 @@ class CardList extends React.Component {
                   alt={item.name}
                   types={
                     item.types.length > 1
-                      ? item.types[1].type.name
+                      ? item.types[0].type.name + ", " + item.types[1].type.name
                       : item.types[0].type.name
                   }
                   order={item.id}
