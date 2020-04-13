@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Loading from "./components/Loading/Loading";
 import CardList from "./components/CardList/CardList";
-//import "antd/dist/antd.css";   dang lam gio toi day
-import { message } from "antd";
 
 class App extends Component {
   constructor() {
@@ -18,13 +16,38 @@ class App extends Component {
       actives: "active",
       activeNumber: 0,
       nextPages: [0, 1, 2, 3, 4],
+      filter: 0,
     };
 
     console.log("constructor");
   }
 
-  onClickButton = ({ key }) => {
-    message.info(`Click on item ${key}`);
+  onClickButton = (event) => {
+    let values = event.target.value;
+    console.log(values);
+    switch (values) {
+      case "id":
+        this.setState({ filter: 1 });
+        break;
+      case "id2":
+        this.setState({ filter: 2 });
+        break;
+      case "name":
+        this.setState({ filter: 3 });
+        break;
+      case "name2":
+        this.setState({ filter: 4 });
+        break;
+      case "type":
+        this.setState({ filter: 5 });
+        break;
+      case "type2":
+        this.setState({ filter: 6 });
+        break;
+      default:
+        this.setState({ filter: 1 });
+        break;
+    }
   };
 
   loadPages = (stateNumber) => {
@@ -149,12 +172,14 @@ class App extends Component {
   };
 
   hasUpdateFromComponent = (startN, endN, otherNumber) => {
+    let urls = [];
     if (otherNumber === 0) {
+      urls = this.state.defaultList;
       this.setState({ activeNumber: 0 });
-    }
-    const urls = [];
-    for (let i = startN; i < endN; i++) {
-      urls.push(this.state.defaultList[i - otherNumber]);
+    } else {
+      for (let i = startN; i < endN; i++) {
+        urls.push(this.state.defaultList[i - otherNumber]);
+      }
     }
     /*
     let arrNew = [].concat(
@@ -193,7 +218,34 @@ class App extends Component {
       urls.push("https://pokeapi.co/api/v2/pokemon/" + i);
     }
 
-    Promise.all(urls.map((url) => fetch(url).then((pages) => pages.json())))
+    (async () => {
+      Promise.all(
+        urls.map(
+          async (url) =>
+            await fetch(url).then(async (pages) => await pages.json())
+        )
+      )
+        .then((pages) => {
+          pages.forEach(
+            async (item, index) => await (item.images = images[index])
+          ); //add new property name images to pages object
+
+          this.setState(
+            {
+              defaultList: [].concat(pages.map((item) => item)),
+              listPokemon: [].concat(pages.filter((item) => item.id < 21)), //filter all item from 1-21
+            },
+            () => {
+              console.log("componentDidMount");
+              console.log(this.state.listPokemon);
+            }
+          );
+        })
+        .catch((err) => console.log("ughhhh fix it!", err));
+    })();
+
+    //call api via fetch Promise.All
+    /*Promise.all(urls.map((url) => fetch(url).then((pages) => pages.json())))
       .then((pages) => {
         pages.forEach((item, index) => (item.images = images[index])); //add new property name images to pages object
 
@@ -209,6 +261,7 @@ class App extends Component {
         );
       })
       .catch((err) => console.log("ughhhh fix it!", err));
+      */
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -218,6 +271,42 @@ class App extends Component {
         this.state.endNumber,
         1
       );
+    }
+
+    if (prevState.filter !== this.state.filter) {
+      let arr,
+        filterN = this.state.filter,
+        defaultArr = this.state.defaultList;
+      if (filterN === 1) {
+        arr = defaultArr.sort((a, b) => a.id - b.id);
+      } else if (filterN === 2) {
+        arr = defaultArr.sort((a, b) => b.id - a.id);
+      } else if (filterN === 3) {
+        arr = defaultArr.sort((a, b) =>
+          a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+        );
+      } else if (filterN === 4) {
+        arr = defaultArr.sort((a, b) =>
+          b.name > a.name ? 1 : a.name > b.name ? -1 : 0
+        );
+      } else if (filterN === 5) {
+        arr = defaultArr.sort((a, b) =>
+          a.types[0].type.name > b.types[0].type.name
+            ? 1
+            : b.types[0].type.name > a.types[0].type.name
+            ? -1
+            : 0
+        );
+      } else if (filterN === 6) {
+        arr = defaultArr.sort((a, b) =>
+          b.types[0].type.name > a.types[0].type.name
+            ? 1
+            : a.types[0].type.name > b.types[0].type.name
+            ? -1
+            : 0
+        );
+      }
+      this.setState({ listPokemon: arr });
     }
 
     if (prevState.input !== this.state.input) {
