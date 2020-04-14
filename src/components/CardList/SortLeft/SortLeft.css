@@ -1,6 +1,182 @@
 .sorted-box {
- width: 100vw;
- height: auto;
- display: flex;
- justify-content: center;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border: 0;
+  outline: none;
+}
+
+.label-box {
+  width: 260px;
+  padding: 10.5px 0 10.5px 16px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid rgb(228, 224, 224);
+  border-radius: 5px;
+}
+
+.fa-sort {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+}
+
+.inactive {
+  color: rgb(158, 158, 158);
+}
+
+.show-box {
+  display: block;
+  width: 260px;
+  position: absolute;
+  z-index: 5;
+  background-color: white;
+  top: 42px;
+  border-radius: 5px;
+  overflow: hidden;
+  animation: moveBoxDown 0.4s;
+}
+
+.main-box {
+  padding: 10.5px 12px 10.5px 16px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.show-box i {
+  margin-right: 12px;
+}
+
+.main-box:nth-child(1):hover {
+  background-color: tomato;
+  color: white;
+  border-radius: 5px;
+  animation: moveUpText 0.5s;
+}
+.main-box:nth-child(2):hover {
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  animation: moveUpText 0.5s;
+}
+.main-box:nth-child(3):hover {
+  background-color: #0057ff;
+  color: white;
+  border-radius: 5px;
+  animation: moveUpText 0.5s;
+}
+.main-box:nth-child(4):hover {
+  background-color: #32c766;
+  color: white;
+  border-radius: 5px;
+  animation: moveUpText 0.5s;
+}
+.main-box:nth-child(5):hover {
+  background-color: #006400;
+  color: white;
+  border-radius: 5px;
+  animation: moveUpText 0.5s;
+}
+.main-box:nth-child(6):hover {
+  background-color: #f48024;
+  color: white;
+  border-radius: 5px;
+  animation: moveUpText 0.5s;
+}
+
+.fa-sort-numeric-down {
+  color: tomato;
+  border-radius: 5px;
+}
+
+.fa-sort-numeric-down-alt {
+  color: #000;
+  border-radius: 5px;
+}
+
+.fa-sort-alpha-down {
+  color: #0057ff;
+  border-radius: 5px;
+}
+
+.fa-sort-alpha-down-alt {
+  color: #32c766;
+  border-radius: 5px;
+}
+
+.fa-paw {
+  color: #006400;
+  border-radius: 5px;
+}
+
+.fa-typo3 {
+  color: #f48024;
+  border-radius: 5px;
+}
+
+.main-box:hover .fa-sort-numeric-down {
+  color: rgb(255, 253, 253);
+  border-radius: 5px;
+  animation: moveDownIcon 0.5s;
+}
+
+.main-box:hover .fa-sort-numeric-down-alt {
+  color: rgb(255, 253, 253);
+  border-radius: 5px;
+  animation: moveDownIcon 0.5s;
+}
+
+.main-box:hover .fa-sort-alpha-down {
+  color: rgb(255, 253, 253);
+  border-radius: 5px;
+  animation: moveDownIcon 0.5s;
+}
+
+.main-box:hover .fa-sort-alpha-down-alt {
+  color: rgb(255, 253, 253);
+  border-radius: 5px;
+  animation: moveDownIcon 0.5s;
+}
+
+.main-box:hover .fa-paw {
+  color: rgb(255, 253, 253);
+  border-radius: 5px;
+  animation: moveDownIcon 0.5s;
+}
+
+.main-box:hover .fa-typo3 {
+  color: rgb(255, 253, 253);
+  border-radius: 5px;
+  animation: moveDownIcon 0.5s;
+}
+
+@keyframes moveDownIcon {
+  from {
+    transform: translateY(-200%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes moveUpText {
+  from {
+    transform: translateY(20%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes moveBoxDown {
+  from {
+    transform: translateY(-20%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
