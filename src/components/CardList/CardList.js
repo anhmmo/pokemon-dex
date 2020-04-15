@@ -6,6 +6,7 @@ import Github from "./Github/Github";
 import Pagination from "./Pagination/Pagination";
 import Card from "./Card/Card";
 import Filter from "./Filter/Filter";
+import Modal from "./Modal/Modal";
 //import SortLeft from "./SortLeft/SortLeft";
 
 class CardList extends React.Component {
@@ -30,6 +31,8 @@ class CardList extends React.Component {
           <h1 onClick={handleClick(0)}>POKEMON DEX</h1>
           <SearchBox handleInput={handleInput} />
         </div>
+
+        <Modal />
 
         <Pagination
           loadP={handleClick}
