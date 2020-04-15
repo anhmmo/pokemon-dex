@@ -17,6 +17,7 @@ class App extends Component {
       activeNumber: 0,
       nextPages: [0, 1, 2, 3, 4],
       filter: 0,
+      // openMenu: false,
     };
 
     console.log("constructor");
@@ -49,7 +50,11 @@ class App extends Component {
         break;
     }
   };
-
+  /*
+  checkOpenMenu = () => {
+    this.setState({ openMenu: !this.state.openMenu });
+  };
+*/
   loadPages = (stateNumber) => {
     const startN = stateNumber * 2 * 10 + 1;
     const endN = stateNumber * 2 * 10 + 21;
@@ -330,6 +335,8 @@ class App extends Component {
             input={this.state.input}
             nextPages={this.state.nextPages}
             onClickButton={this.onClickButton}
+            openMenu={this.state.openMenu}
+            checkOpenMenu={this.checkOpenMenu}
           />
         )}
       </div>
