@@ -1,0 +1,120 @@
+.modal-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  width: 60vw;
+  min-height: 30vh;
+  background: white;
+  border: 6px solid #001f61;
+  border-radius: 20px;
+  animation: openModal 1s;
+}
+
+.modal-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-loading i {
+  font-size: 50px;
+  color: #001f61;
+  animation: loadingCircle 2s infinite;
+}
+
+.modal-box button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 34px;
+  background-color: #e3e4e7;
+  border: 1px solid #cacdd4;
+  padding: 5px 5px 2px 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.modal-box button:hover i,
+.modal-box button:link i,
+.modal-box button:active i {
+  color: tomato;
+}
+
+.modal-box button i {
+  color: #4a64b3;
+}
+
+.modal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px 10px 10px;
+  background-color: #001f61;
+  color: white;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.modal-title span {
+  color: tomato;
+}
+
+.modal-box h2 {
+  margin: 80px 0;
+  text-align: center;
+  color: #97a5ce;
+  text-transform: uppercase;
+}
+
+.modal-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-icons a {
+  margin: 10px;
+  text-decoration: none;
+  background: #fff;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #dce1f2;
+}
+
+.modal-icons i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #001f61;
+}
+
+.modal-icons a:hover {
+  border-color: #ff6a00;
+  box-shadow: 0 9px 12px -9px #ff6a00;
+}
+
+@keyframes loadingCircle {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes openModal {
+  from {
+    top: 0%;
+  }
+
+  to {
+    top: 50%;
+  }
+}
