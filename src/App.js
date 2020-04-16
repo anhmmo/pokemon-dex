@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import "./App.css";
 import Loading from "./components/Loading/Loading";
 import CardList from "./components/CardList/CardList";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.modalRef = createRef();
     this.state = {
       defaultList: [],
       listPokemon: [],
@@ -17,11 +18,44 @@ class App extends Component {
       activeNumber: 0,
       nextPages: [0, 1, 2, 3, 4],
       filter: 0,
+      modalLoaded: false,
+      openModal: false,
+      pokemonName: [],
       // openMenu: false,
     };
 
     console.log("constructor");
   }
+
+  onClickOutside = (e) => {
+    const element = e.target;
+    if (this.modalRef.current && !this.modalRef.current.contains(element)) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.setState({ openModal: false });
+    }
+  };
+
+  openBoxModalInfo = (pokemon) => {
+    return () => {
+      this.setState(
+        {
+          openModal: true,
+          pokemonName: this.state.defaultList[pokemon - 1],
+        },
+        () => console.log(this.state.pokemonName)
+      );
+      if (this.state.defaultList[pokemon - 1]) {
+        setTimeout(() => {
+          this.setState({ modalLoaded: true });
+        }, 2000);
+      }
+    };
+  };
+
+  closeModalInfo = () => {
+    this.setState({ openModal: false });
+  };
 
   onClickButton = (event) => {
     let values = event.target.value;
@@ -267,6 +301,12 @@ class App extends Component {
       })
       .catch((err) => console.log("ughhhh fix it!", err));
       */
+
+    document.addEventListener("click", this.onClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.onClickOutside);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -337,6 +377,12 @@ class App extends Component {
             onClickButton={this.onClickButton}
             openMenu={this.state.openMenu}
             checkOpenMenu={this.checkOpenMenu}
+            modalLoaded={this.state.modalLoaded}
+            openModal={this.state.openModal}
+            openBoxModalInfo={this.openBoxModalInfo}
+            closeModalInfo={this.closeModalInfo}
+            pokemonName={this.state.pokemonName}
+            modalRef={this.modalRef}
           />
         )}
       </div>

@@ -21,6 +21,12 @@ class CardList extends React.Component {
       input,
       nextPages,
       onClickButton,
+      modalLoaded,
+      openModal,
+      openBoxModalInfo,
+      closeModalInfo,
+      pokemonName,
+      modalRef,
       /*  checkOpenMenu,
       openMenu, */
     } = this.props;
@@ -32,7 +38,13 @@ class CardList extends React.Component {
           <SearchBox handleInput={handleInput} />
         </div>
 
-        <Modal />
+        <Modal
+          modalLoaded={modalLoaded}
+          openModal={openModal}
+          closeModalInfo={closeModalInfo}
+          pokemonName={pokemonName}
+          modalRef={modalRef}
+        />
 
         <Pagination
           loadP={handleClick}
@@ -63,6 +75,7 @@ class CardList extends React.Component {
                       : item.types[0].type.name
                   }
                   order={item.id}
+                  openBoxModalInfo={openBoxModalInfo}
                 />
               );
             })
