@@ -16,7 +16,7 @@ function Modal({
         </button>
 
         <div className="modal-title">
-          Created with &#10084; by <span>Nguyen Au</span>
+          Created with &#10084; by <span>Anhmmo</span>
         </div>
 
         {modalLoaded ? (
