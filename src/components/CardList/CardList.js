@@ -34,7 +34,7 @@ class CardList extends React.Component {
       <div id="pokemon">
         <Github />
         <div className="input-container">
-          <h1 onClick={handleClick(0)}>POKEMON DEX</h1>
+          {/*<h1 onClick={handleClick(0)}>POKEMON DEX</h1>*/}
           <SearchBox handleInput={handleInput} />
         </div>
 

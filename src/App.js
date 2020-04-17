@@ -39,10 +39,10 @@ class App extends Component {
   openBoxModalInfo = (pokemon) => {
     return () => {
       this.setState(
-        {
+        (state) => ({
           openModal: true,
-          pokemonName: this.state.defaultList[pokemon - 1],
-        },
+          pokemonName: state.defaultList[pokemon - 1],
+        }),
         () => console.log(this.state.pokemonName)
       );
       if (this.state.defaultList[pokemon - 1]) {
@@ -80,7 +80,7 @@ class App extends Component {
         this.setState({ filter: 6 });
         break;
       default:
-        this.setState({ filter: 1 });
+        this.setState((state) => ({ filter: state.filter }));
         break;
     }
   };
@@ -362,7 +362,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.defaultList.length <= 0 ? (
+        {this.state.defaultList.length > 0 ? (
           <Loading />
         ) : (
           <CardList
