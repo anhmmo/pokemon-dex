@@ -80,7 +80,7 @@ class App extends Component {
         this.setState({ filter: 6 });
         break;
       default:
-        this.setState({ filter: 1 });
+        this.setState((state) => ({ filter: state.filter }));
         break;
     }
   };
