@@ -27,6 +27,7 @@ class CardList extends React.Component {
       closeModalInfo,
       pokemonName,
       modalRef,
+      width,
       /*  checkOpenMenu,
       openMenu, */
     } = this.props;
@@ -46,14 +47,18 @@ class CardList extends React.Component {
           modalRef={modalRef}
         />
 
-        <Pagination
-          loadP={handleClick}
-          page={pages}
-          active={actives}
-          activeNum={activeN}
-          nextPage={nextPages}
-          pokemon={pokemon}
-        />
+        {width > 560 ? (
+          <Pagination
+            loadP={handleClick}
+            page={pages}
+            active={actives}
+            activeNum={activeN}
+            nextPage={nextPages}
+            pokemon={pokemon}
+          />
+        ) : (
+          ""
+        )}
         <Filter onClickButton={onClickButton} />
         {/* <SortLeft
           checkOpenMenu={checkOpenMenu}
