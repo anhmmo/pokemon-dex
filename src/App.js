@@ -362,7 +362,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.defaultList.length <= 0 ? (
+        {this.state.defaultList.length > 0 ? (
           <Loading />
         ) : (
           <CardList
