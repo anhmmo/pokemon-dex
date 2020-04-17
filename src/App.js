@@ -39,10 +39,10 @@ class App extends Component {
   openBoxModalInfo = (pokemon) => {
     return () => {
       this.setState(
-        {
+        (state) => ({
           openModal: true,
-          pokemonName: this.state.defaultList[pokemon - 1],
-        },
+          pokemonName: state.defaultList[pokemon - 1],
+        }),
         () => console.log(this.state.pokemonName)
       );
       if (this.state.defaultList[pokemon - 1]) {
