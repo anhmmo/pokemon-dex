@@ -35,3 +35,9 @@
 .active:hover {
   cursor: pointer;
 }
+
+@media (max-width: 560px) {
+  .pagination {
+    margin-right: 0;
+  }
+}

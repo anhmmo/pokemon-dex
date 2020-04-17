@@ -47,3 +47,10 @@ h1:hover {
   color: tomato;
   font-size: 40px;
 }
+
+@media (max-width: 560px) {
+  .input-container {
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+}

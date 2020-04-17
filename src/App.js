@@ -21,6 +21,8 @@ class App extends Component {
       modalLoaded: false,
       openModal: false,
       pokemonName: [],
+      width: 0,
+      height: 0,
       // openMenu: false,
     };
 
@@ -34,6 +36,13 @@ class App extends Component {
       e.stopPropagation();
       this.setState({ openModal: false });
     }
+  };
+
+  updateWindowDimensions = () => {
+    this.setState(
+      { width: window.innerWidth, height: window.innerHeight },
+      () => console.log(this.state.width + " " + this.state.height)
+    );
   };
 
   openBoxModalInfo = (pokemon) => {
@@ -303,6 +312,7 @@ class App extends Component {
       */
 
     document.addEventListener("click", this.onClickOutside);
+    window.addEventListener("resize", this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
@@ -362,7 +372,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.defaultList.length > 0 ? (
+        {this.state.defaultList.length <= 0 ? (
           <Loading />
         ) : (
           <CardList
@@ -383,6 +393,7 @@ class App extends Component {
             closeModalInfo={this.closeModalInfo}
             pokemonName={this.state.pokemonName}
             modalRef={this.modalRef}
+            width={this.state.width}
           />
         )}
       </div>
