@@ -27,6 +27,7 @@ class App extends Component {
     };
 
     console.log("constructor");
+    window.addEventListener("resize", this.updateWindowDimensions);
   }
 
   onClickOutside = (e) => {
@@ -312,7 +313,6 @@ class App extends Component {
       */
 
     document.addEventListener("click", this.onClickOutside);
-    window.addEventListener("resize", this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
