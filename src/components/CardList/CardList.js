@@ -31,6 +31,7 @@ class CardList extends React.Component {
       /*  checkOpenMenu,
       openMenu, */
     } = this.props;
+
     return (
       <div id="pokemon">
         <Github />
@@ -47,7 +48,7 @@ class CardList extends React.Component {
           modalRef={modalRef}
         />
 
-        {width > 560 ? (
+        {width > 560 || width === 0 ? (
           <Pagination
             loadP={handleClick}
             page={pages}
