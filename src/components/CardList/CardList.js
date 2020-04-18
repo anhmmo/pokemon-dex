@@ -47,7 +47,7 @@ class CardList extends React.Component {
           pokemonName={pokemonName}
           modalRef={modalRef}
         />
-
+        {/*check if width equal 0 (not call yet) or width more than 560px, then show pagination, else display: none*/}
         {width > 560 || width === 0 ? (
           <Pagination
             loadP={handleClick}
