@@ -32,13 +32,13 @@ function Pagination(props) {
       ) : (
         <ul className="list-pages">
           <li onClick={loadP(activeNum - 1)} className="arrow-left active">
-            &#129092; Page 41
+            &#129092; back to page {activeNum === 0 ? 41 : activeNum}
           </li>
           <li onClick={loadP(0)} className={activeNum === 0 ? active : page}>
-            1
+            All Pokemons Sorted
           </li>
           <li onClick={loadP(activeNum + 1)} className="arrow-right active">
-            Page 2 &#129094;
+            back to page {activeNum === 40 ? 1 : activeNum + 2} &#129094;
           </li>
         </ul>
       )}
