@@ -98,10 +98,8 @@ class App extends Component {
     this.setState({ openMenu: !this.state.openMenu });
   };
 */
-  loadPages = (stateNumber) => {
-    const startN = stateNumber * 2 * 10 + 1;
-    const endN = stateNumber * 2 * 10 + 21;
 
+  /*
     const totalArr = [
       {
         startNumber: startN,
@@ -164,6 +162,46 @@ class App extends Component {
         activeNumber: 0,
       },
     ];
+
+    */
+
+  loadPages = (stateNumber) => {
+    const startN = stateNumber * 2 * 10 + 1;
+    const endN = stateNumber * 2 * 10 + 21;
+    const totalArr = [];
+
+    for (let i = 0; i < 10; i++) {
+      totalArr.push({
+        startNumber: startN,
+        endNumber: endN,
+        nextPages: [],
+        activeNumber: stateNumber,
+      });
+    }
+
+    let pagePosition = 0;
+    for (let i = 0; i < 8; i++) {
+      totalArr[i].nextPages = [
+        pagePosition,
+        ++pagePosition,
+        ++pagePosition,
+        ++pagePosition,
+        ++pagePosition,
+      ];
+      ++pagePosition;
+    }
+    totalArr[8] = {
+      startNumber: 801,
+      endNumber: 808,
+      nextPages: [35, 36, 37, 38, 39],
+      activeNumber: 40,
+    };
+    totalArr[9] = {
+      startNumber: 1,
+      endNumber: 21,
+      nextPages: [0, 1, 2, 3, 4],
+      activeNumber: 0,
+    };
 
     if (stateNumber >= 0 && stateNumber <= 4) {
       return () => {
@@ -317,6 +355,7 @@ class App extends Component {
 
   componentWillUnmount() {
     document.removeEventListener("click", this.onClickOutside);
+    window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -370,6 +409,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("render");
     return (
       <div className="App">
         {this.state.defaultList.length <= 0 ? (
