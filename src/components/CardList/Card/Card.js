@@ -2,6 +2,7 @@ import React from "react";
 import "./Card.css";
 
 const Card = ({ imageSrc, alt, types, order, name, openBoxModalInfo }) => {
+  //mark pokemon with unique id name look like #001, #002
   let idNumber = "#00" + order;
   if (order > 9 && order <= 99) {
     idNumber = "#0" + order;
