@@ -21,13 +21,13 @@ function Filter({ onClickButton }) {
               className="s-c top"
               type="radio"
               name="platform"
-              defaultValue="id"
+              defaultValue="1"
             />
             <input
               className="s-c bottom"
               type="radio"
               name="platform"
-              defaultValue="id"
+              defaultValue="1"
             />
             <i className="fas fa-sort-numeric-down"></i>
             <span className="label">Sort By Id (1 - 807)</span>
@@ -38,13 +38,13 @@ function Filter({ onClickButton }) {
               className="s-c top"
               type="radio"
               name="platform"
-              defaultValue="id2"
+              defaultValue="2"
             />
             <input
               className="s-c bottom"
               type="radio"
               name="platform"
-              defaultValue="id2"
+              defaultValue="2"
             />
             <i className="fas fa-sort-numeric-down-alt"></i>
             <span className="label">Sort By Id (807 - 1)</span>
@@ -56,13 +56,13 @@ function Filter({ onClickButton }) {
               className="s-c top"
               type="radio"
               name="platform"
-              defaultValue="name"
+              defaultValue="3"
             />
             <input
               className="s-c bottom"
               type="radio"
               name="platform"
-              defaultValue="name"
+              defaultValue="3"
             />
             <i className="fas fa-sort-alpha-down"></i>
             <span className="label">Sort By Name (A - Z)</span>
@@ -73,13 +73,13 @@ function Filter({ onClickButton }) {
               className="s-c top"
               type="radio"
               name="platform"
-              defaultValue="name2"
+              defaultValue="4"
             />
             <input
               className="s-c bottom"
               type="radio"
               name="platform"
-              defaultValue="name2"
+              defaultValue="4"
             />
             <i className="fas fa-sort-alpha-down-alt"></i>
             <span className="label">Sort By Name (Z - A)</span>
@@ -90,13 +90,13 @@ function Filter({ onClickButton }) {
               className="s-c top"
               type="radio"
               name="platform"
-              defaultValue="type"
+              defaultValue="5"
             />
             <input
               className="s-c bottom"
               type="radio"
               name="platform"
-              defaultValue="type"
+              defaultValue="5"
             />
             <i className="fas fa-paw"></i>
             <span className="label">Sort By Type (a - z)</span>
@@ -107,13 +107,13 @@ function Filter({ onClickButton }) {
               className="s-c top"
               type="radio"
               name="platform"
-              defaultValue="type2"
+              defaultValue="6"
             />
             <input
               className="s-c bottom"
               type="radio"
               name="platform"
-              defaultValue="type2"
+              defaultValue="6"
             />
             <i className="fab fa-typo3"></i>
             <span className="label">Sort By Type (z - a)</span>
