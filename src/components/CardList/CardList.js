@@ -5,9 +5,9 @@ import Footer from "./Footer/Footer";
 import Github from "./Github/Github";
 import Pagination from "./Pagination/Pagination";
 import Card from "./Card/Card";
-import Filter from "./Filter/Filter";
+//import Filter from "./Filter/Filter";
 import Modal from "./Modal/Modal";
-//import SortLeft from "./SortLeft/SortLeft";
+import SortLeft from "./SortLeft/SortLeft";
 
 class CardList extends React.Component {
   render() {
@@ -28,8 +28,8 @@ class CardList extends React.Component {
       pokemonName,
       modalRef,
       width,
-      /*  checkOpenMenu,
-      openMenu, */
+      checkOpenMenu,
+      openMenu,
     } = this.props;
 
     return (
@@ -60,12 +60,12 @@ class CardList extends React.Component {
         ) : (
           ""
         )}
-        <Filter onClickButton={onClickButton} />
-        {/* <SortLeft
+        {/*<Filter onClickButton={onClickButton} />*/}
+        <SortLeft
           checkOpenMenu={checkOpenMenu}
           openMenu={openMenu}
           onClickButton={onClickButton}
-        /> */}
+        />
         <div className="pokemon-container">
           {pokemon.length > 0 ? (
             pokemon.map((item, index) => {
