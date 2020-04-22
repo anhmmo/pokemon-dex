@@ -68,7 +68,7 @@ class App extends Component {
 
   onClickButton = (event) => {
     let values = +event.target.getAttribute("name");
-    this.setState({ filter: values });
+    this.setState({ filter: values, openMenu: false });
   };
 
   checkOpenMenu = () => {
