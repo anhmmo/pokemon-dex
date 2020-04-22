@@ -23,7 +23,7 @@ class App extends Component {
       pokemonName: [],
       width: 0,
       height: 0,
-      // openMenu: false,
+      openMenu: false,
     };
 
     console.log("constructor");
@@ -67,37 +67,13 @@ class App extends Component {
   };
 
   onClickButton = (event) => {
-    let values = event.target.value;
-    console.log(values);
-    switch (values) {
-      case "id":
-        this.setState({ filter: 1 });
-        break;
-      case "id2":
-        this.setState({ filter: 2 });
-        break;
-      case "name":
-        this.setState({ filter: 3 });
-        break;
-      case "name2":
-        this.setState({ filter: 4 });
-        break;
-      case "type":
-        this.setState({ filter: 5 });
-        break;
-      case "type2":
-        this.setState({ filter: 6 });
-        break;
-      default:
-        this.setState((state) => ({ filter: state.filter }));
-        break;
-    }
+    let values = +event.target.getAttribute("name");
+    this.setState({ filter: values });
   };
-  /*
+
   checkOpenMenu = () => {
     this.setState({ openMenu: !this.state.openMenu });
   };
-*/
 
   /*
     const totalArr = [
